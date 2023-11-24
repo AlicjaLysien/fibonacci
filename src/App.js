@@ -7,7 +7,7 @@ function App() {
     document.getElementsByTagName('main')[0].style.gridTemplate = `repeat(${NUMBER_IN_LINE}, 1fr) / repeat(${NUMBER_IN_LINE}, 1fr)`;
   });
 
-  function createElements() {
+  const createElements = () => {
     const cells = [];
     let rowNumber = 0;
     for (let i = 0; i < NUMBER_IN_LINE*NUMBER_IN_LINE; i++) {
@@ -31,7 +31,7 @@ function App() {
   }
 
   
-  function handlerCell (id) {
+  const handlerCell = (id) => {
     const myCell = document.getElementById(id)
     myCell.innerHTML = parseInt(myCell.innerHTML) - 1;
 
@@ -41,18 +41,18 @@ function App() {
     const dataCollumn = myCell.dataset.collumn
     const allCellsInCollumn = document.querySelectorAll(`[data-collumn="${dataCollumn}"]`)
 
-    allCellsInRow.forEach(function(cell){
+    allCellsInRow.forEach((cell) => {
       cell.innerHTML = parseInt(cell.innerHTML) + 1;
       cell.style.backgroundColor = CLICKED_COLOR
-      setTimeout(function(){
+      setTimeout(() => {
         cell.style.backgroundColor = ORIGINAL_COLOR
       }, 800)
     });
 
-    allCellsInCollumn.forEach(function(cell){
+    allCellsInCollumn.forEach((cell) => {
       cell.innerHTML = parseInt(cell.innerHTML) + 1;
       cell.style.backgroundColor = CLICKED_COLOR
-      setTimeout(function(){
+      setTimeout(() => {
         cell.style.backgroundColor = ORIGINAL_COLOR
       }, 800)
     });
@@ -63,7 +63,7 @@ function App() {
     searchThroughCells('collumn', dataCollumnInt);
   }
 
-  function searchThroughCells(direction, directionInt){
+  const searchThroughCells = (direction, directionInt) => {
     for (let i = 1; i <= 50; i++){
       let cell1 = 0
       let cell2 = 0
@@ -106,7 +106,7 @@ function App() {
     }
   }
 
-  function searchFibonacci (el1, el2, el3, el4, el5){
+  const searchFibonacci = (el1, el2, el3, el4, el5) => {
     if (parseInt(el1.innerHTML) + parseInt(el2.innerHTML) === parseInt(el3.innerHTML) && 
     parseInt(el2.innerHTML) + parseInt(el3.innerHTML) === parseInt(el4.innerHTML) && 
     parseInt(el3.innerHTML) + parseInt(el4.innerHTML) === parseInt(el5.innerHTML) &&
@@ -121,7 +121,7 @@ function App() {
       el4.innerHTML = "0";
       el5.style.backgroundColor = PASSED_COLOR
       el5.innerHTML = "0";
-      setTimeout(function(){
+      setTimeout(() => {
         el1.style.backgroundColor = ORIGINAL_COLOR
         el2.style.backgroundColor = ORIGINAL_COLOR
         el3.style.backgroundColor = ORIGINAL_COLOR
