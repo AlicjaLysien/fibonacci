@@ -1,19 +1,21 @@
 import './App.css';
+import { useEffect } from 'react';
+import { NUMBER_IN_LINE, ORIGINAL_COLOR, CLICKED_COLOR, PASSED_COLOR } from "./global.js"
 
 function App() {
 
-  const originalColor = '#EAEAEA'
-  const green = '#19d119'
-  const yellow = '#FFFF99'
+  useEffect(() => {
+    document.getElementsByClassName('wrapper')[0].style.gridTemplate = `repeat(${NUMBER_IN_LINE}, 1fr) / repeat(${NUMBER_IN_LINE}, 1fr)`;
+  });
 
   function createElements() {
     const cells = [];
     let rowNumber = 0;
-    for (let i = 0; i < 2500; i++) {
-      if (i % 50 === 0) {
+    for (let i = 0; i < NUMBER_IN_LINE*NUMBER_IN_LINE; i++) {
+      if (i % NUMBER_IN_LINE === 0) {
         rowNumber += 1; 
       }
-      let collumnNumber = (i % 50) + 1
+      let collumnNumber = (i % NUMBER_IN_LINE) + 1
       cells.push(
         <div 
         className='box'
@@ -42,17 +44,17 @@ function App() {
 
     allCellsInRow.forEach(function(cell){
       cell.innerHTML = parseInt(cell.innerHTML) + 1;
-      cell.style.backgroundColor = yellow
+      cell.style.backgroundColor = CLICKED_COLOR
       setTimeout(function(){
-        cell.style.backgroundColor = originalColor
+        cell.style.backgroundColor = ORIGINAL_COLOR
       }, 800)
     });
 
     allCellsInCollumn.forEach(function(cell){
       cell.innerHTML = parseInt(cell.innerHTML) + 1;
-      cell.style.backgroundColor = yellow
+      cell.style.backgroundColor = CLICKED_COLOR
       setTimeout(function(){
-        cell.style.backgroundColor = originalColor
+        cell.style.backgroundColor = ORIGINAL_COLOR
       }, 800)
     });
 
@@ -110,29 +112,29 @@ function App() {
     parseInt(el2.innerHTML) + parseInt(el3.innerHTML) === parseInt(el4.innerHTML) && 
     parseInt(el3.innerHTML) + parseInt(el4.innerHTML) === parseInt(el5.innerHTML) &&
     parseInt(el2.innerHTML) !== 0 && parseInt(el3.innerHTML) !== 0 && parseInt(el4.innerHTML) !== 0) {
-      el1.style.backgroundColor = green
+      el1.style.backgroundColor = PASSED_COLOR
       el1.innerHTML = "0";
-      el2.style.backgroundColor = green
+      el2.style.backgroundColor = PASSED_COLOR
       el2.innerHTML = "0";
-      el3.style.backgroundColor = green
+      el3.style.backgroundColor = PASSED_COLOR
       el3.innerHTML = "0";
-      el4.style.backgroundColor = green
+      el4.style.backgroundColor = PASSED_COLOR
       el4.innerHTML = "0";
-      el5.style.backgroundColor = green
+      el5.style.backgroundColor = PASSED_COLOR
       el5.innerHTML = "0";
       setTimeout(function(){
-        el1.style.backgroundColor = originalColor
-        el2.style.backgroundColor = originalColor
-        el3.style.backgroundColor = originalColor
-        el4.style.backgroundColor = originalColor
-        el5.style.backgroundColor = originalColor
+        el1.style.backgroundColor = ORIGINAL_COLOR
+        el2.style.backgroundColor = ORIGINAL_COLOR
+        el3.style.backgroundColor = ORIGINAL_COLOR
+        el4.style.backgroundColor = ORIGINAL_COLOR
+        el5.style.backgroundColor = ORIGINAL_COLOR
       }, 800)
     }
   }
 
   return (
     <div className="App">
-      <div className="wrapper">
+      <div className="wrapper" id="wrapper">
         {createElements()}
       </div>
     </div>
