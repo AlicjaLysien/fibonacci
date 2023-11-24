@@ -1,11 +1,10 @@
-import './App.css';
 import { useEffect } from 'react';
 import { NUMBER_IN_LINE, ORIGINAL_COLOR, CLICKED_COLOR, PASSED_COLOR } from "./global.js"
 
 function App() {
 
   useEffect(() => {
-    document.getElementsByClassName('wrapper')[0].style.gridTemplate = `repeat(${NUMBER_IN_LINE}, 1fr) / repeat(${NUMBER_IN_LINE}, 1fr)`;
+    document.getElementsByTagName('main')[0].style.gridTemplate = `repeat(${NUMBER_IN_LINE}, 1fr) / repeat(${NUMBER_IN_LINE}, 1fr)`;
   });
 
   function createElements() {
@@ -18,7 +17,7 @@ function App() {
       let collumnNumber = (i % NUMBER_IN_LINE) + 1
       cells.push(
         <div 
-        className='box'
+        className='cell'
         data-row={rowNumber}
         data-collumn={collumnNumber}
         id={i} 
@@ -133,11 +132,9 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="wrapper" id="wrapper">
-        {createElements()}
-      </div>
-    </div>
+    <main>
+      {createElements()}
+    </main>
   );
 }
 
