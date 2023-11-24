@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {NUMBER_IN_LINE, ORIGINAL_COLOR, CLICKED_COLOR, PASSED_COLOR} from "./global.js";
+import {NUMBER_IN_LINE, CLICKED_COLOR, PASSED_COLOR} from "./global.js";
 
 function App() {
 
@@ -46,16 +46,16 @@ function App() {
 			cell.innerHTML = parseInt(cell.innerHTML) + 1;
 			cell.style.backgroundColor = CLICKED_COLOR;
 			setTimeout(() => {
-				cell.style.backgroundColor = ORIGINAL_COLOR;
-			}, 800);
+				cell.style.removeProperty("background-color");
+			}, 400);
 		});
 
 		allCellsInCollumn.forEach((cell) => {
 			cell.innerHTML = parseInt(cell.innerHTML) + 1;
 			cell.style.backgroundColor = CLICKED_COLOR;
 			setTimeout(() => {
-				cell.style.backgroundColor = ORIGINAL_COLOR;
-			}, 800);
+				cell.style.removeProperty("background-color");
+			}, 400);
 		});
 
 		let dataRowInt = parseInt(dataRow);
@@ -88,19 +88,19 @@ function App() {
 				searchFibonacci(cell1, cell2, cell3, cell4, cell5);
 				searchFibonacci(cell5, cell4, cell3, cell2, cell1);
 			}
-			if((directionInt - 3) > 0 && (directionInt + 1) < 51){
+			if((directionInt - 3) > 0 && (directionInt + 1) < NUMBER_IN_LINE+1){
 				searchFibonacci(cell2, cell3, cell4, cell5, cell6);
 				searchFibonacci(cell6, cell5, cell4, cell3, cell2);
 			}
-			if((directionInt - 2) > 0 && (directionInt + 2) < 51){
+			if((directionInt - 2) > 0 && (directionInt + 2) < NUMBER_IN_LINE+1){
 				searchFibonacci(cell3, cell4, cell5, cell6, cell7);
 				searchFibonacci(cell7, cell6, cell5, cell4, cell3);
 			}
-			if((directionInt - 1) > 0 && (directionInt + 3) < 51){
+			if((directionInt - 1) > 0 && (directionInt + 3) < NUMBER_IN_LINE+1){
 				searchFibonacci(cell4, cell5, cell6, cell7, cell8);
 				searchFibonacci(cell8, cell7, cell6, cell5, cell4);
 			}
-			if((directionInt + 4) < 51){
+			if((directionInt + 4) < NUMBER_IN_LINE+1){
 				searchFibonacci(cell5, cell6, cell7, cell8, cell9);
 				searchFibonacci(cell9, cell8, cell7, cell6, cell5);
 			}
@@ -123,12 +123,12 @@ function App() {
 			el5.style.backgroundColor = PASSED_COLOR;
 			el5.innerHTML = "0";
 			setTimeout(() => {
-				el1.style.backgroundColor = ORIGINAL_COLOR;
-				el2.style.backgroundColor = ORIGINAL_COLOR;
-				el3.style.backgroundColor = ORIGINAL_COLOR;
-				el4.style.backgroundColor = ORIGINAL_COLOR;
-				el5.style.backgroundColor = ORIGINAL_COLOR;
-			}, 800);
+				el1.style.removeProperty("background-color");
+				el2.style.removeProperty("background-color");
+				el3.style.removeProperty("background-color");
+				el4.style.removeProperty("background-color");
+				el5.style.removeProperty("background-color");
+			}, 600);
 		}
 	};
 
