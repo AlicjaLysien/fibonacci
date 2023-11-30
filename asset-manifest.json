@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/fibonacci/static/css/main.ba6d161c.css",
+    "main.js": "/fibonacci/static/js/main.fc81b0db.js",
+    "static/js/787.b9dba12a.chunk.js": "/fibonacci/static/js/787.b9dba12a.chunk.js",
+    "index.html": "/fibonacci/index.html",
+    "main.ba6d161c.css.map": "/fibonacci/static/css/main.ba6d161c.css.map",
+    "main.fc81b0db.js.map": "/fibonacci/static/js/main.fc81b0db.js.map",
+    "787.b9dba12a.chunk.js.map": "/fibonacci/static/js/787.b9dba12a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ba6d161c.css",
+    "static/js/main.fc81b0db.js"
+  ]
+}
